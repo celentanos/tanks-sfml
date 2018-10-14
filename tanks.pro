@@ -6,13 +6,13 @@ CONFIG -= qt
 DESTDIR = $$PWD/bin
 
 SOURCES += \
-        main.cpp \
-    player.cpp \
-    entity.cpp \
-    input.cpp \
-    spritesheet.cpp \
-    entitylist.cpp \
-    collision.cpp
+        src/main.cpp \
+    src/player.cpp \
+    src/entity.cpp \
+    src/input.cpp \
+    src/spritesheet.cpp \
+    src/entitylist.cpp \
+    src/collision.cpp
 
 unix:!macx: LIBS += -lsfml-system -lsfml-window -lsfml-graphics
 
@@ -24,13 +24,13 @@ release {
 }
 
 HEADERS += \
-    player.h \
-    defines.h \
-    entity.h \
-    input.h \
-    spritesheet.h \
-    entitylist.h \
-    collision.h
+    src/player.h \
+    src/defines.h \
+    src/entity.h \
+    src/input.h \
+    src/spritesheet.h \
+    src/entitylist.h \
+    src/collision.h
 
 DISTFILES += \
     README.md
