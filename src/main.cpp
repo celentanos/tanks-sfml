@@ -1,6 +1,6 @@
 #include "entitylist.h"
 #include "input.h"
-#include "player.h"
+#include "tank.h"
 #include "spritesheet.h"
 #include <SFML/Graphics.hpp>
 #include <iostream>
@@ -36,10 +36,10 @@ int main() {
 
   Input input;
   EntityList list;
-  Player player(sf::Vector2f(32, 0), Entity::EntityType::Player, texture, list,
-                input, window);
-  Player enemy(sf::Vector2f(0, 0), Entity::EntityType::Enemy, texture, list,
-               input, window);
+  Tank player(sf::Vector2f(32, 0), Entity::EntityType::Player, texture, list,
+              input, window);
+  Tank enemy(sf::Vector2f(0, 0), Entity::EntityType::Enemy, texture, list,
+             input, window);
   list.push_back(&player);
   list.push_back(&enemy);
 

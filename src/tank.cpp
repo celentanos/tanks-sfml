@@ -1,7 +1,7 @@
-#include "player.h"
+#include "tank.h"
 
-Player::Player(sf::Vector2f pos, EntityType type, sf::Texture &texture,
-               EntityList &list, Input &input, sf::RenderWindow &win)
+Tank::Tank(sf::Vector2f pos, EntityType type, sf::Texture &texture,
+           EntityList &list, Input &input, sf::RenderWindow &win)
     : Entity(pos, type), list(list), input(input), window(win) {
   sprite.setTexture(texture);
   speed = 1;
@@ -54,7 +54,7 @@ Player::Player(sf::Vector2f pos, EntityType type, sf::Texture &texture,
   //  }
 }
 
-void Player::update() {
+void Tank::update() {
   pos_old = pos;
   if (type == EntityType::Player) { // TEMP
     if (input.getKeyMap()->at(sf::Keyboard::Key::Up) == 1) {
@@ -85,18 +85,18 @@ void Player::update() {
   }
 }
 
-void Player::draw() {
+void Tank::draw() {
   setupSprite();
   window.draw(sprite);
 }
 
-sf::Sprite *Player::getSprite() { return &sprite; }
+sf::Sprite *Tank::getSprite() { return &sprite; }
 
-myfloat Player::getSpeed() const { return speed; }
+myfloat Tank::getSpeed() const { return speed; }
 
-void Player::setSpeed(const myfloat &value) { speed = value; }
+void Tank::setSpeed(const myfloat &value) { speed = value; }
 
-void Player::setupSprite() {
+void Tank::setupSprite() {
   sprite.setPosition(pos.x, pos.y);
   int isprite = level * playerOrientSize * playerAnimSize +
                 orient * playerAnimSize + anim;

@@ -1,15 +1,15 @@
-#ifndef PLAYER_H
-#define PLAYER_H
+#ifndef TANK_H
+#define TANK_H
 
 #include "defines.h"
 #include "entitylist.h"
 #include "input.h"
 #include <SFML/Graphics.hpp>
 
-class Player : public Entity {
+class Tank : public Entity {
 public:
-  Player(sf::Vector2f pos, EntityType type, sf::Texture &texture,
-         EntityList &list, Input &input, sf::RenderWindow &win);
+  Tank(sf::Vector2f pos, EntityType type, sf::Texture &texture,
+       EntityList &list, Input &input, sf::RenderWindow &win);
 
   void update();
   void draw();
@@ -38,4 +38,4 @@ private:
   void setupSprite();
 };
 
-#endif // PLAYER_H
+#endif // TANK_H

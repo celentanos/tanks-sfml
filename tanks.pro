@@ -7,12 +7,12 @@ DESTDIR = $$PWD/bin
 
 SOURCES += \
         src/main.cpp \
-    src/player.cpp \
     src/entity.cpp \
     src/input.cpp \
     src/spritesheet.cpp \
     src/entitylist.cpp \
-    src/collision.cpp
+    src/collision.cpp \
+    src/tank.cpp
 
 unix:!macx: LIBS += -lsfml-system -lsfml-window -lsfml-graphics
 
@@ -24,13 +24,13 @@ release {
 }
 
 HEADERS += \
-    src/player.h \
     src/defines.h \
     src/entity.h \
     src/input.h \
     src/spritesheet.h \
     src/entitylist.h \
-    src/collision.h
+    src/collision.h \
+    src/tank.h
 
 DISTFILES += \
     README.md
