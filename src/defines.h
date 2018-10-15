@@ -18,10 +18,10 @@ public:
   ///
   ////////////////////////////////////////////////////////////
   Vector4() {
-    a = 0;
-    b = 0;
-    c = 0;
-    d = 0;
+    x = 0;
+    y = 0;
+    w = 0;
+    h = 0;
   }
 
   ////////////////////////////////////////////////////////////
@@ -29,10 +29,10 @@ public:
   ///
   ////////////////////////////////////////////////////////////
   Vector4(T A, T B, T C, T D) {
-    a = A;
-    b = B;
-    c = C;
-    d = D;
+    x = A;
+    y = B;
+    w = C;
+    h = D;
   }
 
   ////////////////////////////////////////////////////////////
@@ -51,10 +51,10 @@ public:
   ////////////////////////////////////////////////////////////
   // Member data
   ////////////////////////////////////////////////////////////
-  T a; ///< A coordinate of the vector
-  T b; ///< B coordinate of the vector
-  T c; ///< C coordinate of the vector
-  T d; ///< D coordinate of the vector
+  T x; ///< A coordinate of the vector
+  T y; ///< B coordinate of the vector
+  T w; ///< C coordinate of the vector
+  T h; ///< D coordinate of the vector
 };
 
 #endif // DEFINES_H

@@ -32,6 +32,7 @@ int main() {
   //  s.setTexture(t);
   //  window.draw(s);
   //  window.display();
+  SpriteSheet sheet(texture);
 
   Input input;
   EntityList list;
