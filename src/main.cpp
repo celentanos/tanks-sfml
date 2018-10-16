@@ -14,6 +14,7 @@ int main() {
     return -1;
   //  image.createMaskFromColor(sf::Color::Black);
   sf::Texture texture;
+  SpriteSheet spritesheet(texture);
   texture.loadFromImage(image);
   sf::Sprite sprite;
   sprite.setTexture(texture);
@@ -32,7 +33,6 @@ int main() {
   //  s.setTexture(t);
   //  window.draw(s);
   //  window.display();
-  SpriteSheet sheet(texture);
   //  sf::Sprite sp;
   //  sp.setTexture(texture);
   //  sp.setTextureRect(sheet.getBoundingsIntRect(2, 1, 1, 0, 1));
@@ -40,12 +40,12 @@ int main() {
 
   Input input;
   EntityList list;
-  Tank player(sf::Vector2f(32, 0), Entity::EntityType::Player, sheet, list,
-              input, window);
-  //  Tank enemy(sf::Vector2f(0, 0), Entity::EntityType::Enemy, texture, list,
-  //             input, window);
+  Tank player(sf::Vector2f(32, 0), Entity::EntityType::Player, spritesheet,
+              list, input, window);
+  Tank enemy(sf::Vector2f(0, 0), Entity::EntityType::Enemy, spritesheet, list,
+             input, window);
   list.push_back(&player);
-  //  list.push_back(&enemy);
+  list.push_back(&enemy);
 
   while (window.isOpen()) {
     sf::Event event;

@@ -36,9 +36,9 @@ SpriteSheet::SpriteSheet(sf::Texture &texture) : texture(texture) {
                 .at(tank_t)
                 .push_back(a1);
             for (size_t anim_t = 0; anim_t < 2; ++anim_t) {
-              int x = static_cast<int>((color_y * 128) +
-                                       (direction_t * 32) * (anim_t * 16));
-              int y = static_cast<int>((color_x * 128) + (enemy_t * 64) +
+              int x = static_cast<int>((color_x * 128) + (direction_t * 32) +
+                                       (anim_t * 16));
+              int y = static_cast<int>((color_y * 128) + (enemy_t * 64) +
                                        (tank_t * 16));
               sf::Image img2;
               img2.create(16, 16);

@@ -103,9 +103,6 @@ void Tank::setupSprite() {
   sprite.setPosition(pos.x, pos.y);
   int isprite = level * playerOrientSize * playerAnimSize +
                 direction * playerAnimSize + anim;
-  //  sprite.setTextureRect(sf::IntRect(spriteMap.at(isprite).x,
-  //                                    spriteMap.at(isprite).y, sprite_size16,
-  //                                    sprite_size16));
   sprite.setTextureRect(
       spritesheet.getBoundingsIntRect(0, 0, level, direction, anim));
   sprite.setScale(sprite_scale, sprite_scale);
