@@ -14,8 +14,8 @@ int main() {
     return -1;
   //  image.createMaskFromColor(sf::Color::Black);
   sf::Texture texture;
-  SpriteSheet spritesheet(texture);
   texture.loadFromImage(image);
+  SpriteSheet spritesheet(texture);
   sf::Sprite sprite;
   sprite.setTexture(texture);
   //  sprite.setTextureRect(sf::IntRect(96, 0, 16, 16));

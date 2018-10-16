@@ -6,17 +6,25 @@
 #include <SFML/Graphics.hpp>
 
 class Entity {
+
 public:
+  virtual ~Entity();
   enum EntityType { Player, Enemy, Brick, Metall, Water, Wood, Ice };
 
-  Entity(sf::Vector2f pos, EntityType type);
+  // slycing solution
+  Entity(const Entity &) = delete;
+  void operator=(const Entity &) = delete;
+
   virtual void update() = 0;
   virtual void draw() = 0;
   virtual sf::Sprite *getSprite() = 0;
 
 protected:
+  // slycing solution
+  Entity(sf::Vector2f pos, EntityType type);
+
   sf::Vector2f pos;
-  sf::Vector2f dim;
+  //  sf::Vector2f dim;
   EntityType type;
 };
 

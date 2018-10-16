@@ -17,7 +17,7 @@ public:
 
   sf::Texture &getTexture();
 
-  sf::IntRect getBoundingsIntRect(uint color, uint enemy, uint tank_level,
+  sf::IntRect getBoundingIntRect(uint color, uint enemy, uint tank_level,
                                   uint direction, uint animation);
 
 private:

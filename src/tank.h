@@ -34,8 +34,8 @@ private:
   int direction;
   int level;
   int anim;
-  vector<sf::Vector2u> spriteMap;
-  vector<Vector4<float>> spriteBoundsMap;
+  //  vector<sf::Vector2u> spriteMap;
+  //  vector<Vector4<float>> spriteBoundsMap;
 
   void setupSprite();
 };

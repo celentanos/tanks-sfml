@@ -80,8 +80,9 @@ void Tank::update() {
     setupSprite();
     for (ulong i = 0; i < list.size(); ++i) {
       if (list.at(i) != this)
-        if (Collision::BoundingBoxTest(*this->getSprite(),
-                                       *list.at(i)->getSprite())) {
+        if (Collision::BoundingBoxTest(sprite, *list.at(i)->getSprite())) {
+          //          sf::FloatRect v = sprite.getGlobalBounds();
+          //          sf::IntRect v2 = sprite.getTextureRect();
           pos = pos_old;
         }
     }
@@ -101,9 +102,9 @@ void Tank::setSpeed(const myfloat &value) { speed = value; }
 
 void Tank::setupSprite() {
   sprite.setPosition(pos.x, pos.y);
-  int isprite = level * playerOrientSize * playerAnimSize +
-                direction * playerAnimSize + anim;
+
   sprite.setTextureRect(
-      spritesheet.getBoundingsIntRect(0, 0, level, direction, anim));
+      spritesheet.getBoundingIntRect(2, 0, level, direction, anim));
+
   sprite.setScale(sprite_scale, sprite_scale);
 }

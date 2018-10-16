@@ -60,9 +60,9 @@ SpriteSheet::SpriteSheet(sf::Texture &texture) : texture(texture) {
 
 sf::Texture &SpriteSheet::getTexture() { return texture; }
 
-sf::IntRect SpriteSheet::getBoundingsIntRect(uint color, uint enemy,
-                                             uint tank_level, uint direction,
-                                             uint animation) {
+sf::IntRect SpriteSheet::getBoundingIntRect(uint color, uint enemy,
+                                            uint tank_level, uint direction,
+                                            uint animation) {
   if (tank.size() > color)
     if (tank.at(color).size() > enemy)
       if (tank.at(color).at(enemy).size() > tank_level)
