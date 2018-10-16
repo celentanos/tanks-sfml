@@ -4,11 +4,12 @@
 #include "defines.h"
 #include "entitylist.h"
 #include "input.h"
+#include "spritesheet.h"
 #include <SFML/Graphics.hpp>
 
 class Tank : public Entity {
 public:
-  Tank(sf::Vector2f pos, EntityType type, sf::Texture &texture,
+  Tank(sf::Vector2f pos, EntityType type, SpriteSheet &spritesheet,
        EntityList &list, Input &input, sf::RenderWindow &win);
 
   void update();
@@ -23,13 +24,14 @@ private:
   enum PlayerOrient { n, w, s, e, playerOrientSize };
   enum PlayerAnim { a1, a2, playerAnimSize };
 
+  SpriteSheet &spritesheet;
   EntityList &list;
   Input &input;
   sf::RenderWindow &window;
   sf::Sprite sprite;
   sf::Vector2f pos_old;
   myfloat speed;
-  int orient;
+  int direction;
   int level;
   int anim;
   vector<sf::Vector2u> spriteMap;

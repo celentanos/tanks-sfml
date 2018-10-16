@@ -33,19 +33,18 @@ int main() {
   //  window.draw(s);
   //  window.display();
   SpriteSheet sheet(texture);
-  sf::Sprite sp;
-  sp.setTexture(texture);
-  sp.setTextureRect(sheet.getBoundingsIntRect(2, 1, 3, 0, 1));
-  sp.scale(2, 2);
+  //  sf::Sprite sp;
+  //  sp.setTexture(texture);
+  //  sp.setTextureRect(sheet.getBoundingsIntRect(2, 1, 1, 0, 1));
+  //  sp.scale(2, 2);
 
   Input input;
   EntityList list;
-  //  Tank player(sf::Vector2f(32, 0), Entity::EntityType::Player, texture,
-  //  list,
-  //              input, window);
+  Tank player(sf::Vector2f(32, 0), Entity::EntityType::Player, sheet, list,
+              input, window);
   //  Tank enemy(sf::Vector2f(0, 0), Entity::EntityType::Enemy, texture, list,
   //             input, window);
-  //  list.push_back(&player);
+  list.push_back(&player);
   //  list.push_back(&enemy);
 
   while (window.isOpen()) {
@@ -66,10 +65,9 @@ int main() {
       }
     }
 
-    //    window.clear();
-    //    list.updateAll();
+    window.clear();
+    list.updateAll();
     window.display();
-    window.draw(sp);
   }
 
   return 0;

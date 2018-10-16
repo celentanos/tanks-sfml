@@ -1,23 +1,26 @@
 #include "tank.h"
 
-Tank::Tank(sf::Vector2f pos, EntityType type, sf::Texture &texture,
+Tank::Tank(sf::Vector2f pos, EntityType type, SpriteSheet &spritesheet,
            EntityList &list, Input &input, sf::RenderWindow &win)
-    : Entity(pos, type), list(list), input(input), window(win) {
-  sprite.setTexture(texture);
+    : Entity(pos, type), spritesheet(spritesheet), list(list), input(input),
+      window(win) {
+  sprite.setTexture(spritesheet.getTexture());
   speed = 1;
-  orient = 0;
+  direction = 0;
   level = 0;
   anim = 0;
 
-  for (int level = 0; level < playerLevelSize; ++level) {
-    for (int orient = 0; orient < playerOrientSize; ++orient) {
-      for (int anim = 0; anim < playerAnimSize; ++anim) {
-        spriteMap.push_back(
-            sf::Vector2u((((orient * playerAnimSize) + anim) * sprite_size16),
-                         level * sprite_size16));
-      }
-    }
-  }
+  //  for (int level = 0; level < playerLevelSize; ++level) {
+  //    for (int orient = 0; orient < playerOrientSize; ++orient) {
+  //      for (int anim = 0; anim < playerAnimSize; ++anim) {
+  //        spriteMap.push_back(
+  //            sf::Vector2u((((orient * playerAnimSize) + anim) *
+  //            sprite_size16),
+  //                         level * sprite_size16));
+  //      }
+  //    }
+  //  }
+
   //  sf::Color c;
   //  for (int level = 0; level < playerLevelSize; ++level) {
   //    for (int orient = 0; orient < playerOrientSize; ++orient) {
@@ -59,19 +62,19 @@ void Tank::update() {
   if (type == EntityType::Player) { // TEMP
     if (input.getKeyMap()->at(sf::Keyboard::Key::Up) == 1) {
       pos.y -= speed;
-      orient = n;
+      direction = n;
       anim = !anim;
     } else if (input.getKeyMap()->at(sf::Keyboard::Key::Down) == 1) {
       pos.y += speed;
-      orient = s;
+      direction = s;
       anim = !anim;
     } else if (input.getKeyMap()->at(sf::Keyboard::Key::Left) == 1) {
       pos.x -= speed;
-      orient = w;
+      direction = w;
       anim = !anim;
     } else if (input.getKeyMap()->at(sf::Keyboard::Key::Right) == 1) {
       pos.x += speed;
-      orient = e;
+      direction = e;
       anim = !anim;
     }
     setupSprite();
@@ -99,9 +102,11 @@ void Tank::setSpeed(const myfloat &value) { speed = value; }
 void Tank::setupSprite() {
   sprite.setPosition(pos.x, pos.y);
   int isprite = level * playerOrientSize * playerAnimSize +
-                orient * playerAnimSize + anim;
-  sprite.setTextureRect(sf::IntRect(spriteMap.at(isprite).x,
-                                    spriteMap.at(isprite).y, sprite_size16,
-                                    sprite_size16));
+                direction * playerAnimSize + anim;
+  //  sprite.setTextureRect(sf::IntRect(spriteMap.at(isprite).x,
+  //                                    spriteMap.at(isprite).y, sprite_size16,
+  //                                    sprite_size16));
+  sprite.setTextureRect(
+      spritesheet.getBoundingsIntRect(0, 0, level, direction, anim));
   sprite.setScale(sprite_scale, sprite_scale);
 }

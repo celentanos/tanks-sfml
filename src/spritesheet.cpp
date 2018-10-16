@@ -1,7 +1,6 @@
 #include "spritesheet.h"
 
-SpriteSheet::SpriteSheet(sf::Texture &texture) {
-
+SpriteSheet::SpriteSheet(sf::Texture &texture) : texture(texture) {
   //  sf::Image img = texture.copyToImage();
   //  for (int y = 0; y < img.getSize().y / sprite_size16; ++y) {
   //    for (int x = 0; x < img.getSize().x / sprite_size16; ++x) {
@@ -58,6 +57,8 @@ SpriteSheet::SpriteSheet(sf::Texture &texture) {
     }
   }
 }
+
+sf::Texture &SpriteSheet::getTexture() { return texture; }
 
 sf::IntRect SpriteSheet::getBoundingsIntRect(uint color, uint enemy,
                                              uint tank_level, uint direction,
