@@ -1,7 +1,7 @@
 #include "entitylist.h"
 #include "input.h"
-#include "tank.h"
 #include "spritesheet.h"
+#include "tank.h"
 #include <SFML/Graphics.hpp>
 #include <iostream>
 
@@ -33,15 +33,20 @@ int main() {
   //  window.draw(s);
   //  window.display();
   SpriteSheet sheet(texture);
+  sf::Sprite sp;
+  sp.setTexture(texture);
+  sp.setTextureRect(sheet.getBoundingsIntRect(2, 1, 3, 0, 1));
+  sp.scale(2, 2);
 
   Input input;
   EntityList list;
-  Tank player(sf::Vector2f(32, 0), Entity::EntityType::Player, texture, list,
-              input, window);
-  Tank enemy(sf::Vector2f(0, 0), Entity::EntityType::Enemy, texture, list,
-             input, window);
-  list.push_back(&player);
-  list.push_back(&enemy);
+  //  Tank player(sf::Vector2f(32, 0), Entity::EntityType::Player, texture,
+  //  list,
+  //              input, window);
+  //  Tank enemy(sf::Vector2f(0, 0), Entity::EntityType::Enemy, texture, list,
+  //             input, window);
+  //  list.push_back(&player);
+  //  list.push_back(&enemy);
 
   while (window.isOpen()) {
     sf::Event event;
@@ -61,9 +66,10 @@ int main() {
       }
     }
 
-    window.clear();
-    list.updateAll();
+    //    window.clear();
+    //    list.updateAll();
     window.display();
+    window.draw(sp);
   }
 
   return 0;

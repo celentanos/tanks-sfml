@@ -15,12 +15,15 @@ class SpriteSheet {
 public:
   SpriteSheet(sf::Texture &texture);
 
+  sf::IntRect getBoundingsIntRect(uint color, uint enemy, uint tank_level,
+                                  uint direction, uint animation);
+
 private:
   //  vector<sf::Image> imgSheet;
   vector<vector<vector<vector<vector<Vector4<uint>>>>>>
       tank; // color, enemy, tank, direction, animation
 
-  Vector4<unsigned int> findImgBoundings(sf::Image &img);
+  Vector4<uint> findImgBoundings(sf::Image &img);
 };
 
 #endif // SPRITESHEET_H
