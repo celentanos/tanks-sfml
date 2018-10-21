@@ -30,7 +30,8 @@ HEADERS += \
     src/spritesheet.h \
     src/entitylist.h \
     src/collision.h \
-    src/tank.h
+    src/tank.h \
+    tsingleton.h
 
 DISTFILES += \
     README.md
