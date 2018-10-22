@@ -31,7 +31,7 @@ HEADERS += \
     src/entitylist.h \
     src/collision.h \
     src/tank.h \
-    tsingleton.h
+    src/tsingleton.h
 
 DISTFILES += \
     README.md
